@@ -13,7 +13,7 @@ go get github.com/fatih/hclfmt
 
 ## Editor integration
 
-* [`vim-hclfmt`](https://github.com/fatih/vim-hclfmt) plugin
+* [vim-hclfmt plugin](https://github.com/fatih/vim-hclfmt)
 
 ## Usage
 
@@ -27,7 +27,7 @@ $ hclfmt config.hcl
 You can pass the `-write` flag to directly overwrite your file:
 
 ```bash
-$ hclfmt -writ config.hcl
+$ hclfmt -write config.hcl
 ```
 
 If no arguments are passed, it excepts the input from standard input.
