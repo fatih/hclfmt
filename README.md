@@ -1,4 +1,4 @@
-# HCL [![Build Status](http://img.shields.io/travis/fatih/hclfmt.svg?style=flat-square)](https://travis-ci.org/fatih/hclfmt)
+# hclfmt [![Build Status](http://img.shields.io/travis/fatih/hclfmt.svg?style=flat-square)](https://travis-ci.org/fatih/hclfmt)
 
 hclfmt is a command to format and prettify HCL files. It's similar to the
 popular `gofmt` command. Usually you want to hook it to your editor. 
