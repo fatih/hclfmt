@@ -1,8 +1,7 @@
 # HCL [![Build Status](http://img.shields.io/travis/fatih/hclfmt.svg?style=flat-square)](https://travis-ci.org/fatih/hclfmt)
 
-hclfmt is a command to format and prettify HCL files. Usually you want to hook
-it to your editor. If you use Vim, thers is
-[`vim-hclfmt`](https://github.com/fatih/vim-hclfmt) plugin.
+hclfmt is a command to format and prettify HCL files. It's similar to the
+popular `gofmt` command. Usually you want to hook it to your editor. 
 
 ## Install
 
@@ -12,22 +11,26 @@ If you have Go installed just do:
 go get github.com/fatih/hclfmt
 ```
 
+## Editor integration
+
+* [`vim-hclfmt`](https://github.com/fatih/vim-hclfmt) plugin
+
 ## Usage
 
-The use is similar to `gofmt`. If you pass a file it prints the formatted
+The usage is similar to `gofmt`. If you pass a file it prints the formatted
 output to std output:
 
 ```bash
-$ hclfmt test.hcl
+$ hclfmt config.hcl
 ```
 
 You can pass the `-write` flag to directly overwrite your file:
 
 ```bash
-$ hclfmt -writ test.hcl
+$ hclfmt -writ config.hcl
 ```
 
-Lastly if no arguments are passed, it excepts the input from standard input.
+If no arguments are passed, it excepts the input from standard input.
 
 
 ## License
