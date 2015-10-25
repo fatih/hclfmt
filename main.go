@@ -4,7 +4,6 @@ import (
 	"errors"
 	"flag"
 	"fmt"
-	"go/scanner"
 	"io"
 	"io/ioutil"
 	"os"
@@ -16,9 +15,7 @@ import (
 )
 
 var (
-	write = flag.Bool("w", false, "write result to (source) file instead of stdout")
-
-	// debugging
+	write      = flag.Bool("w", false, "write result to (source) file instead of stdout")
 	cpuprofile = flag.String("cpuprofile", "", "write cpu profile to this file")
 )
 
@@ -30,7 +27,6 @@ func main() {
 }
 
 func realMain() error {
-
 	flag.Usage = usage
 	flag.Parse()
 
@@ -56,12 +52,12 @@ func realMain() error {
 		path := flag.Arg(i)
 		switch dir, err := os.Stat(path); {
 		case err != nil:
-			report(err)
+			return err
 		case dir.IsDir():
 			walkDir(path)
 		default:
 			if err := processFile(path, nil, os.Stdout, false); err != nil {
-				report(err)
+				return err
 			}
 		}
 	}
@@ -73,10 +69,6 @@ func usage() {
 	fmt.Fprintf(os.Stderr, "usage: hclfmt [flags] [path ...]\n")
 	flag.PrintDefaults()
 	os.Exit(2)
-}
-
-func report(err error) {
-	scanner.PrintError(os.Stderr, err)
 }
 
 func isHclFile(f os.FileInfo) bool {
@@ -93,10 +85,8 @@ func visitFile(path string, f os.FileInfo, err error) error {
 	if err == nil && isHclFile(f) {
 		err = processFile(path, nil, os.Stdout, false)
 	}
-	if err != nil {
-		report(err)
-	}
-	return nil
+
+	return err
 }
 
 // If in == nil, the source is the contents of the file with the given filename.
