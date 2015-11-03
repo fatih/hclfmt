@@ -25,10 +25,10 @@ output to std output:
 $ hclfmt config.hcl
 ```
 
-You can pass the `-write` flag to directly overwrite your file:
+You can pass the `-w` flag to directly overwrite your file:
 
 ```bash
-$ hclfmt -write config.hcl
+$ hclfmt -w config.hcl
 ```
 
 If no arguments are passed, it excepts the input from standard input.
