@@ -14,9 +14,12 @@ import (
 	"github.com/fatih/hcl/printer"
 )
 
+const Version = "0.1.0"
+
 var (
 	write      = flag.Bool("w", false, "write result to (source) file instead of stdout")
 	cpuprofile = flag.String("cpuprofile", "", "write cpu profile to this file")
+	version    = flag.Bool("version", false, "version information")
 )
 
 func main() {
@@ -29,6 +32,11 @@ func main() {
 func realMain() error {
 	flag.Usage = usage
 	flag.Parse()
+
+	if *version {
+		fmt.Println(Version)
+		return nil
+	}
 
 	if *cpuprofile != "" {
 		f, err := os.Create(*cpuprofile)
