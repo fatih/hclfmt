@@ -11,7 +11,7 @@ import (
 	"runtime/pprof"
 	"strings"
 
-	"github.com/fatih/hcl/printer"
+	"github.com/hashicorp/hcl/hcl/printer"
 )
 
 var (
