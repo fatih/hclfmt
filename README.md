@@ -15,6 +15,7 @@ go get github.com/fatih/hclfmt
 ## Editor integration
 
 * [vim-hclfmt plugin](https://github.com/fatih/vim-hclfmt)
+* [atom-hclfmt](https://atom.io/packages/hclfmt)
 
 ## Usage
 
